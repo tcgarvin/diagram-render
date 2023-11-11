@@ -2,8 +2,11 @@
   "name": "diagram-render",
   "version": "0.0.1",
   "description": "Diagram Rendering API",
-  "scripts" : {
+  "scripts": {
     "test": "echo \"No tests yet...\""
   },
-  "author": "tcgarvin@gmail.com"
+  "author": "tcgarvin@gmail.com",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^10.6.0"
+  }
 }
