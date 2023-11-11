@@ -7,12 +7,13 @@ test('should process data correctly', async () => {
   Bob ->> Alice: Hey
   Alice ->> Bob: Hi
   ` 
-  const request = { body: diagram }
+  const request = { body: diagram };
+  var context = {log:function(anything){}};
 
   // Act
-  const response = await myFunction(request);
+  await generateDiagram(context, request);
 
   // Assert
-  expect(response).toBeDefined();
-  expect(response.body).toBe(diagram);
+  expect(context.res).toBeDefined();
+  expect(context.res.body).toBe(diagram);
 });
