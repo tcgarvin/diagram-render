@@ -12,7 +12,7 @@ export default async function (context, req) {
         context.log("there")
 
         // Extract Mermaid syntax from the request
-        const mermaidSyntax = req.body;
+        const mermaidSyntax = req.body.diagram;
         const filename = `${Date.now()}-${randomUUID()}`;
         context.log(mermaidSyntax)
 
@@ -45,7 +45,7 @@ export default async function (context, req) {
 
         context.res = {
             // status: 200, /* Defaults to 200 */
-            body: svgContent
+            body: {"svg":svgContent}
         };
     } catch (err) {
         context.log.error(err)

@@ -7,7 +7,7 @@ test('should process data correctly', async () => {
   Bob ->> Alice: Hey
   Alice ->> Bob: Hi
   ` 
-  const request = { body: diagram };
+  const request = { body: {diagram: diagram }};
   var context = {log:function(anything){}};
 
   // Act
@@ -15,8 +15,8 @@ test('should process data correctly', async () => {
 
   // Assert
   // Check that the string starts with '<svg'
-  expect(context.res.body).toMatch(/^<svg/);
+  expect(context.res.body.svg).toMatch(/^<svg/);
 
   // Check that the length of the string is over 100 characters
-  expect(context.res.body.length).toBeGreaterThan(100);
+  expect(context.res.body.svg.length).toBeGreaterThan(100);
 }, 10000);
