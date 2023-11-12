@@ -33,8 +33,11 @@ export default async function (context, req) {
             context.log.error(err)
             context.res = {
                 status: 400,
-                body: "Error running Mermaid."
+                body: {
+                    error: "Error running Mermaid: " + err.message
+                }
             };
+            return
         }
 
         // Step 3: Read SVG into response
@@ -53,7 +56,7 @@ export default async function (context, req) {
         context.log.error(err)
         context.res = {
             status: 500,
-            body: "Unexpected Exception"
+            body: {error: "Unexpected Exception"}
         };
     };
 };
