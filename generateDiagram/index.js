@@ -6,22 +6,25 @@ import { run } from "@mermaid-js/mermaid-cli"
 
 export default async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-    const mermaidCode = req.body;
 
     // Extract Mermaid syntax from the request
     const mermaidSyntax = req.body;
     const filename = `${Date.now()}-${randomUUID()}`;
+    console.log(mermaidSyntax)
 
     // Step 1: Write to disk
     const mmdFilePath = path.join(os.tmpdir(), `${filename}.mmd`);
     const svgFilePath = `${mmdFilePath}.svg`;
     await fs.writeFile(mmdFilePath, mermaidSyntax);
+    console.log(mmdFilePath)
 
     try {
         // Step 2: Generate SVG
+        console.log("Running")
         await run(
             mmdFilePath, svgFilePath, // {optional options},
         )
+        console.log("Ran")
     } catch (error) {
         context.res = {
             status: 400,
@@ -31,6 +34,7 @@ export default async function (context, req) {
 
     // Step 3: Read SVG into response
     const svgContent = await fs.readFile(svgFilePath, 'utf8');
+    console.log(svgContent)
 
     // Cleanup temporary files
     await Promise.all([fs.unlink(mmdFilePath), fs.unlink(svgFilePath)]);
