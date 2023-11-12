@@ -29,7 +29,8 @@ export default async function (context, req) {
                 mmdFilePath, svgFilePath, // {optional options},
             )
             context.log("Ran")
-        } catch (error) {
+        } catch (err) {
+            context.log.error(err)
             context.res = {
                 status: 400,
                 body: "Error running Mermaid."
@@ -37,6 +38,7 @@ export default async function (context, req) {
         }
 
         // Step 3: Read SVG into response
+
         const svgContent = await fs.readFile(svgFilePath, 'utf8');
         context.log(svgContent)
 
