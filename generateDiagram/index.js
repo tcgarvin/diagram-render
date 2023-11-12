@@ -6,6 +6,9 @@ import { run } from "@mermaid-js/mermaid-cli"
 
 export default async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
+    console.log("Here")
+    console.log(req.body)
+    console.log("there")
 
     // Extract Mermaid syntax from the request
     const mermaidSyntax = req.body;
