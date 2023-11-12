@@ -12,9 +12,9 @@ export default async function (context, req) {
 
     // Extract Mermaid syntax from the request
     const mermaidSyntax = req.body;
-    const filename = `${Date.now()}`}
-    console.log(mermaidSyntax)
-    console.log(filename)
+    //const filename = `${Date.now()}`}
+    //console.log(mermaidSyntax)
+    //console.log(filename)
 
     // Step 1: Write to disk
     //const mmdFilePath = path.join(os.tmpdir(), `${filename}.mmd`);
@@ -45,6 +45,6 @@ export default async function (context, req) {
 
     context.res = {
         // status: 200, /* Defaults to 200 */
-        body: svgContent
+        body: mermaidSyntax
     };
 };
