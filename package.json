@@ -1,9 +1,16 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "scripts" : {
-    "test": "echo \"No tests yet...\""
+  "name": "diagram-render",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Diagram Rendering API",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   },
-  "author": ""
+  "author": "tcgarvin@gmail.com",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^10.6.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
