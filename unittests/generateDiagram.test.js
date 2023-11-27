@@ -2,8 +2,8 @@ import generateDiagram from "../generateDiagram/index.js"
 //const myFunction = require('../generateDiagram/index.js');
 
 function getContext() {
-  var context = {log:function(anything){console.log(anything)}};
-  context.log.error = function(anything){console.log(anything)};
+  var context = {log:function(anything){}};
+  context.log.error = function(anything){};
   return context;
 }
 

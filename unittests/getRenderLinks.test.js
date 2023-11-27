@@ -1,8 +1,8 @@
 import getRenderLinks from "../getRenderLinks/index.js"
 
 function getContext() {
-  var context = {log:function(anything){console.log(anything)}};
-  context.log.error = function(anything){console.log(anything)};
+  var context = {log:function(anything){}};
+  context.log.error = function(anything){};
   return context;
 }
 

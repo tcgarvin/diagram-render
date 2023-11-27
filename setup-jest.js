@@ -1,0 +1,1 @@
+global.HOSTNAME = 'http://localhost:7071' // Default port for local func host start

@@ -4,13 +4,15 @@
   "version": "0.0.1",
   "description": "Diagram Rendering API",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --testPathPattern unittests/",
+    "resttest": "NODE_OPTIONS=--experimental-vm-modules jest --testPathPattern resttests/"
   },
   "author": "tcgarvin@gmail.com",
   "dependencies": {
     "@mermaid-js/mermaid-cli": "^10.6.0"
   },
   "devDependencies": {
+    "axios": "^1.6.2",
     "jest": "^29.7.0"
   }
 }
